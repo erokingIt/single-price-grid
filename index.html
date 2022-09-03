@@ -10,41 +10,168 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+  @font-face {
+    font-family: 'Karla';
+    src: url('fonts/Karla-VariableFont_wght.ttf') format('truetype');
+    font-weight:400;
+    font-style: normal;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    background-color: darkslategray;
+    font-weight: 400;
+  }
+
+  /* Style the header */
+  .top {
+    grid-area: header;
+    background-color: #ffffff;
+    padding: 30px;
+    text-align: left;
+    height: 215px;
+    width: 624px;
+    border-width: 1px;
+    border-color: black;
+    padding-left: 40px;
+    padding-top: 40px;
+    color: hsl(218, 22%, 67%)
+  }
+
+  /* The grid container */
+  .grid-container {
+    display: grid;
+    grid-template-areas: 
+      'header header' 
+      'left right';
+    /* grid-column-gap: 10px; - if you want gap between the columns */
+    
+    max-width: 624px;
+  } 
+
+  .left,
+  .right {
+    padding: 10px;
+    height: 255px; 
+    max-width: 312px;
+    width: 312px;
+    border-width: 1px;
+    border-color: black;
+    padding-left: 40px;
+    padding-top: 40px;
+    background-color: hsl(179, 62%, 43%);
+    color: hsl(204, 43%, 93%);
+  }
+
+  /* Style the left column */
+  .left {
+    grid-area: left;
+  }
+
+  /* Style the right column */
+  .right {
+    grid-area: right;
+  }
+
+  /* Style the footer */
+  .footer {
+    grid-area: footer;
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .top>.title-area {
+    color: hsl(179, 62%, 43%);
+    font-weight: 700;
+  }
+
+  .left>.title-area, .right>.title-area {
+    color: white;
+  }
+
+  .left>.mon-sub-area>.cost {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  ul.features {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-area {
+    padding-bottom: 25px;
+  }
+  
+  .lime-content-area {
+    padding-bottom: 20px;
+    color: hsl(71, 73%, 54%);
+    font-weight: 700;
+  }
+
+  .signup-btn {
+    margin-top: 20px;
+    width: 235px;
+    height: 45px;
+    background-color: hsl(71, 73%, 54%);
+    color: white;
+  }
+
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media (max-width: 630px) {
+    .grid-container  {
+      grid-template-areas: 
+        'header' 
+        'left' 
+        'right' 
+    }
+    .top {
+      width: 312px;
+      height: auto;
+    }
+    
+  }
   </style>
 </head>
 <body>
-  Join our community
-
-  30-day, hassle-free money back guarantee
-
-  Gain access to our full library of tutorials along with expert code reviews. 
-  Perfect for any developers who are serious about honing their skills.
-
-  Monthly Subscription
-
-  &dollar;29 per month
-
-  Full access for less than &dollar;1 a day
-
-  Sign Up
-
-  Why Us
-
-  Tutorials by industry experts
-  Peer &amp; expert code review
-  Coding exercises
-  Access to our GitHub repos
-  Community forum
-  Flashcard decks
-  New videos every week
-  
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </p>
-  </footer>
+  <div class="grid-container">
+    <div class="top">
+      <div class="title-area">Join our community</div>
+      <div class="lime-content-area">30-day, hassle-free money back guarantee</div>
+      <div class="content-area">Gain access to our full library of tutorials along with expert code reviews. Perfect for an developers who are serious about honing theri skills.</div>
+    </div>
+    
+    <div class="left">
+      <div class="title-area">Monthly Subscription</div>
+      <div class="mon-sub-area"><span class="cost">$29</span> per month</div>
+      <div class="content-area">Full access for less than $1 a day</div>
+      <button class="signup-btn">Sign Up</button>
+    </div>
+    
+    <div class="right">
+      <div class="title-area">Why Us</div>
+      <div class="content-area">
+        <ul class="features">
+          <li>Tutorials by industry experts</li>
+          <li>Peer &amp; expert code review</li>
+          <li>Coding exercises</li>
+          <li>Access to our GitHub repos</li>
+          <li>Community forum</li>
+          <li>Flashcard decks</li>
+          <li>New Videos every week</li>
+        </ul>
+      </div>
+    </div>
+    
+    
+  </div>
 </body>
 </html>
