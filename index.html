@@ -24,7 +24,7 @@
   body {
     font-family: 'Karla', sans-serif;
     font-size: 16px;
-    background-color: darkslategray;
+    /*background-color: darkslategray;*/
     font-weight: 400;
   }
 
@@ -37,10 +37,10 @@
     height: 215px;
     width: 624px;
     border-width: 1px;
-    border-color: black;
     padding-left: 40px;
     padding-top: 40px;
-    color: hsl(218, 22%, 67%)
+    color: hsl(218, 22%, 67%);
+    border-radius: 10px 10px 0 0;
   }
 
   /* The grid container */
@@ -52,6 +52,10 @@
     /* grid-column-gap: 10px; - if you want gap between the columns */
     
     max-width: 624px;
+    box-shadow: 0px 0px 20px 0px hsl(218, 22%, 67%);
+    border-radius: 12px;
+
+
   } 
 
   .left,
@@ -61,7 +65,6 @@
     max-width: 312px;
     width: 312px;
     border-width: 1px;
-    border-color: black;
     padding-left: 40px;
     padding-top: 40px;
     background-color: hsl(179, 62%, 43%);
@@ -71,11 +74,15 @@
   /* Style the left column */
   .left {
     grid-area: left;
+    background-color: rgb(43, 179, 177);
+    border-radius: 0 0 0 10px;
   }
 
   /* Style the right column */
   .right {
     grid-area: right;
+    background-color: rgb(74, 190, 189);
+    border-radius: 0 0 10px 0;
   }
 
   /* Style the footer */
@@ -89,6 +96,7 @@
   .top>.title-area {
     color: hsl(179, 62%, 43%);
     font-weight: 700;
+    font-size: 22px;
   }
 
   .left>.title-area, .right>.title-area {
@@ -97,24 +105,30 @@
 
   .left>.mon-sub-area>.cost {
     color: white;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
+    vertical-align: middle;
+    margin-right: 6px;
   }
 
   ul.features {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    font-size: 14px;
   }
 
   .title-area {
-    padding-bottom: 25px;
+    padding-bottom:15px;
+    font-size: 18px;
+    font-weight: 400;
   }
   
   .lime-content-area {
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     color: hsl(71, 73%, 54%);
     font-weight: 700;
+    font-size: 18px;
   }
 
   .signup-btn {
@@ -123,6 +137,15 @@
     height: 45px;
     background-color: hsl(71, 73%, 54%);
     color: white;
+    font-weight: 700;
+    border-width: 0px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px hsl(218, 22%, 67%);
+    font-size: 16px;
+  }
+
+  .top>.content-area, .mon-sub-area, .features {
+    line-height: 1.5;
   }
 
   /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -131,11 +154,21 @@
       grid-template-areas: 
         'header' 
         'left' 
-        'right' 
+        'right';
+      
+        width: 312px;
     }
     .top {
       width: 312px;
       height: auto;
+    }
+
+    .left {
+      border-radius: 0;
+    }
+
+    .right {
+      border-radius: 0 0 10px 10px;
     }
     
   }
